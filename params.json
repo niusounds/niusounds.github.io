@@ -1,6 +1,0 @@
-{
-  "name": "Yuya Matsuo",
-  "tagline": "",
-  "body": "## About\r\n\r\n```js\r\nlet me = {\r\n  name: 'Yuya Matsuo',\r\n  aka: 'niu',\r\n  skills: ['JavaScript', 'Node.js', 'Java', 'Android', 'Gear VR'],\r\n  birthday: new Date(1987, 10, 24) // It's November!\r\n};\r\n```\r\n\r\nI'm:\r\n\r\n* software engineer working at [eje inc.](http://www.eje-c.com)\r\n* main contributor of [kirinsan.org](http://kirinsan.org)\r\n* [musician](https://soundcloud.com/niusounds). I like heavy metal! \\m/\r\n\r\n## Works\r\n\r\n### [WONDER.NET](https://kirinsan-org.github.io/wmh2016/)\r\n\r\nWeb Music Hackathon #5 work\r\n\r\nVery emotional visualizer!!\r\n\r\nNote: WebCam and mic are required.\r\n\r\n### [OtamaMIDI](https://kirinsan-org.github.io/OtamaMIDI/)\r\n\r\nWeb Music Hackathon #3 work\r\n\r\nPlay MIDI device with [Otamatone](http://www.otamatone.com/)!!\r\n\r\nNote: Audio and MIDI interface are required.\r\n\r\n### [Meganekko](https://github.com/ejeinc/Meganekko)\r\n\r\nJava framework for Gear VR apps.\r\n\r\n### [miku.js](https://github.com/ejeinc/miku.js)\r\n\r\nJavaScript [Pocket Miku](http://vocaloid.wikia.com/wiki/Pocket_Miku) controlling library.",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
