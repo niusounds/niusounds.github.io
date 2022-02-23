@@ -2,9 +2,19 @@
 
 Source of https://niusounds.github.io
 
-## Deploy flow
+Built with Flutter.
 
-1. flutter build web
-2. copy build/web/** into niusounds.github.io/**
-3. commit&push in niusounds.github.io
-3. commit submodule change and push
+## Develop
+
+```
+flutter run
+```
+## Build
+
+```
+flutter build web
+```
+
+## Deploy
+
+Automatically deployed updated page with GitHub Actions when `develop` branch is updated.
