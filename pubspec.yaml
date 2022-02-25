@@ -29,3 +29,5 @@ flutter:
   assets:
     - images/
     - privacy.txt
+
+  generate: true
