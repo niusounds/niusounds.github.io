@@ -1,0 +1,17 @@
+{
+  "metalOjisansRoom": "Metal Ojisan's room",
+  "welcomeMessage1": "Hellow. Welcome to Metal Ojisan's room. ",
+  "welcomeMessage2": "Please leave a message freely in ",
+  "welcomeMessage3": "BBS",
+  "welcomeMessage4": ".",
+  "bbs_name": "Name",
+  "bbs_title": "Title",
+  "bbs_body": "Body",
+  "bbs_color": "Color",
+  "bbs_color_black": "Black",
+  "bbs_color_red": "Red",
+  "bbs_color_blue": "Blue",
+  "bbs_delete_key": "Delete key",
+  "bbs_submit": "Post",
+  "bbs_submit_description": "If you specify delete key, you can delete a message with it. It is not possible to delete a message if delete key is not specified."
+}

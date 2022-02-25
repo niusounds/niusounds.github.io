@@ -1,0 +1,17 @@
+{
+  "metalOjisansRoom": "メタルおじさんの部屋",
+  "welcomeMessage1": "こんにちは。メタルおじさんの部屋へようこそ。",
+  "welcomeMessage2": "はじめましての方は",
+  "welcomeMessage3": "掲示板",
+  "welcomeMessage4": "に一言よろしくお願いします。",
+  "bbs_name": "名前",
+  "bbs_title": "タイトル",
+  "bbs_body": "本文",
+  "bbs_color": "文字色",
+  "bbs_color_black": "黒",
+  "bbs_color_red": "赤",
+  "bbs_color_blue": "青",
+  "bbs_delete_key": "削除キー",
+  "bbs_submit": "書き込む",
+  "bbs_submit_description": "削除キーを設定しておくと、後で書き込みを削除することができます。削除キーを設定しないで書き込んだ場合は、削除することができません。"
+}

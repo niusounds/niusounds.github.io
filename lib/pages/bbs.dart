@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../models/bbs_entry.dart';
 import '../repositories/bbs_repository.dart';
@@ -241,17 +242,17 @@ class _InputFormState extends State<InputForm> {
       child: Column(
         children: [
           BbsPostTextField(
-            label: '名前',
+            label: AppLocalizations.of(context)!.bbs_name,
             controller: _nameTextController,
             enabled: _formIsEnabled,
           ),
           BbsPostTextField(
-            label: 'タイトル',
+            label: AppLocalizations.of(context)!.bbs_title,
             controller: _titleTextController,
             enabled: _formIsEnabled,
           ),
           BbsPostTextField(
-            label: '本文',
+            label: AppLocalizations.of(context)!.bbs_body,
             maxLines: 5,
             controller: _bodyTextController,
             enabled: _formIsEnabled,
@@ -268,15 +269,15 @@ class _InputFormState extends State<InputForm> {
                   width: 100,
                   child: TextFormField(
                     controller: _deleteKeyTextController,
-                    decoration: const InputDecoration(
-                      labelText: '削除キー',
+                    decoration: InputDecoration(
+                      labelText: AppLocalizations.of(context)!.bbs_delete_key,
                     ),
                   ),
                 ),
               ),
               ElevatedButton(
                 onPressed: _onSubmit,
-                child: const Text('書き込む'),
+                child: Text(AppLocalizations.of(context)!.bbs_submit),
               ),
             ],
           ),
@@ -284,7 +285,7 @@ class _InputFormState extends State<InputForm> {
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              '※削除キーを設定しておくと、後で書き込みを削除することができます。削除キーを設定しないで書き込んだ場合は、削除することができません。',
+              AppLocalizations.of(context)!.bbs_submit_description,
               style: Theme.of(context).textTheme.caption,
             ),
           ),
@@ -353,28 +354,28 @@ class BbsPostColor extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 16),
-          child: Text('文字色:'),
+        Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Text(AppLocalizations.of(context)!.bbs_color),
         ),
         Radio(
           value: Colors.black,
           groupValue: selectedColor,
           onChanged: onChanged,
         ),
-        const Text('黒'),
+        Text(AppLocalizations.of(context)!.bbs_color_black),
         Radio(
           value: Colors.red,
           groupValue: selectedColor,
           onChanged: onChanged,
         ),
-        const Text('赤'),
+        Text(AppLocalizations.of(context)!.bbs_color_red),
         Radio(
           value: Colors.blue,
           groupValue: selectedColor,
           onChanged: onChanged,
         ),
-        Text('青'),
+        Text(AppLocalizations.of(context)!.bbs_color_blue),
       ],
     );
   }
