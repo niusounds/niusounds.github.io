@@ -1,3 +1,7 @@
 {
-  "metalOjisansRoom": "メタルおじさんの部屋"
+  "metalOjisansRoom": "メタルおじさんの部屋",
+  "welcomeMessage1": "こんにちは。メタルおじさんの部屋へようこそ。",
+  "welcomeMessage2": "はじめましての方は",
+  "welcomeMessage3": "掲示板",
+  "welcomeMessage4": "に一言よろしくお願いします。"
 }

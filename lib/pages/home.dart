@@ -60,11 +60,12 @@ class Greeting extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-        text: 'こんにちは。メタルおじさんの部屋へようこそ。はじめましての方は',
+        text: AppLocalizations.of(context)!.welcomeMessage1 +
+            AppLocalizations.of(context)!.welcomeMessage2,
         style: Theme.of(context).textTheme.subtitle1,
         children: [
           TextSpan(
-            text: '掲示板',
+            text: AppLocalizations.of(context)!.welcomeMessage3,
             style: TextStyle(
               color: Theme.of(context).primaryColor,
               decoration: TextDecoration.underline,
@@ -74,7 +75,7 @@ class Greeting extends StatelessWidget {
                 Navigator.pushNamed(context, '/bbs');
               },
           ),
-          const TextSpan(text: 'に一言よろしくお願いします。'),
+          TextSpan(text: AppLocalizations.of(context)!.welcomeMessage4),
         ],
       ),
     );
