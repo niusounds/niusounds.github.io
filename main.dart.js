@@ -67941,7 +67941,7 @@ lF(a){return B.b.w(A.a(["en","ja"],t.s),a.gcA(a))},
 kP(a){return!1}}
 A.E2.prototype={
 gMu(){return"Metal Ojisan's room"},
-gNQ(){return"Hellow. Welcome to Metal Ojisan's room. "},
+gNQ(){return"Hello. Welcome to Metal Ojisan's room. "},
 gNR(){return"Please leave a message freely in "},
 gNS(){return"BBS"},
 gNT(){return"."},
