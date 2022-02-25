@@ -219,7 +219,10 @@ class LinkItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.asset('images/${link.icon}.png'),
+      leading: Image.asset(
+        'images/${link.icon}.png',
+        width: 48,
+      ),
       title: Text(link.title),
       subtitle: Text(link.url),
       onTap: () {

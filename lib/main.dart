@@ -63,6 +63,12 @@ class MyApp extends StatelessWidget {
                 ],
                 links: [
                   Link(
+                    icon: 'youtube',
+                    title: 'YouTube',
+                    url:
+                        'https://www.youtube.com/channel/UCRMZKLpPpJs8mEcz3XFnscQ',
+                  ),
+                  Link(
                     icon: 'github',
                     title: 'GitHub',
                     url: 'https://github.com/niusounds',
