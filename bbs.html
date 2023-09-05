@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掲示板</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        <p>
+            <label>
+                名前:
+                <input type="text" name="name" id="form-name" required>
+            </label>
+        </p>
+        <p>
+            <label>
+                件名:
+                <input type="text" name="title" id="form-title" required>
+            </label>
+        </p>
+        <label>
+            メッセージ:<br>
+            <textarea name="body" id="form-body" cols="50" rows="10" required></textarea>
+        </label>
+        <p>
+            <button type="submit">投稿</button>
+        </p>
+    </form>
+
+    <!-- 投稿一覧 -->
+    <article id="posts">
+    </article>
+    <template id="post-template">
+        <div id="post" style="border: 1px solid blue; margin-top: 16px; padding: 8px; background-color: #eee;">
+            <div>
+                <span id="title" style="color:red;"></span>
+                <span> - </span>
+                <span id="name" style="font-size: small;"> - </span>
+            </div>
+            <div id="time" style="float: right; font-size: x-small;"></div>
+            <p id="body"></p>
+        </div>
+    </template>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+        import { getFirestore, collection, onSnapshot, query, where, orderBy, limit, addDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDqtUHA0sKHosvhXpwlUA-vtQAkQEq0Bb8",
+            authDomain: "niusounds-sandbox.firebaseapp.com",
+            databaseURL: "https://niusounds-sandbox.firebaseio.com",
+            projectId: "niusounds-sandbox",
+            storageBucket: "niusounds-sandbox.appspot.com",
+            messagingSenderId: "711623336526",
+            appId: "1:711623336526:web:d20cd61b78b0480350991f",
+            measurementId: "G-1RZMQY4KQ3"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Posts DOM
+        const posts = document.querySelector('#posts');
+        const postTemplate = document.querySelector('#post-template');
+
+        // Get all posts
+        const bbsRef = collection(db, "bbs");
+        const q = query(bbsRef, where("deleted", "==", false), orderBy('updatedAt', 'desc'), limit(10));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+
+            // clear posts before add postElements
+            posts.querySelectorAll('#post').forEach((postElement) => postElement.remove());
+
+            // Apply posts to DOM
+            querySnapshot.forEach((doc) => {
+                const post = doc.data();
+                const postElement = postTemplate.content.cloneNode(true);
+                postElement.querySelector('#title').innerText = post.title;
+                postElement.querySelector('#name').innerText = post.name;
+                postElement.querySelector('#body').innerText = post.body;
+                postElement.querySelector('#time').innerText = post.updatedAt?.toDate()?.toLocaleString();
+                posts.appendChild(postElement);
+            });
+        });
+
+        const form = document.querySelector('#form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            await addDoc(bbsRef, {
+                name: form.elements['name'].value,
+                title: form.elements['title'].value,
+                body: form.elements['body'].value,
+                textColor: '0',
+                deleteKey: '',
+                deleted: false,
+                updatedAt: serverTimestamp(),
+            });
+
+            form.reset();
+        })
+    </script>
+</body>
+
+</html>
