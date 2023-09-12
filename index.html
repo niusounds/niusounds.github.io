@@ -10,6 +10,17 @@
     <meta property="og:url" content="https://niusounds.github.io/" />
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/1331297" />
     <meta property="og:description" content="Niusoundsはniu（メタルおじさん）が管理人のホームページです。ゆっくりしていってね！" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+        .access-counter {
+            font-family: "Press Start 2P";
+            font-size: small;
+            color: white;
+            background-color: black;
+            padding: 4px;
+            border: 2px inset lightgray;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,6 +28,7 @@
         <a href="bbs.html">掲示板</a>
     </nav>
     <h1>はじめまして</h1>
+    <p>あなたは<span class="access-counter"></span>人目の訪問者です。キリ番報告は<a href="bbs.html">掲示板</a>へどうぞ。</p>
     <p>
         インターネット老人会でヘヴィメタルが好きなniuです。最近はメタルおじさんを名乗っています。
         <br>
@@ -136,6 +148,47 @@
             <td>がめがねを忘れた</td>
         </tr>
     </table>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+        import { getFirestore, collection, getCountFromServer, addDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDqtUHA0sKHosvhXpwlUA-vtQAkQEq0Bb8",
+            authDomain: "niusounds-sandbox.firebaseapp.com",
+            databaseURL: "https://niusounds-sandbox.firebaseio.com",
+            projectId: "niusounds-sandbox",
+            storageBucket: "niusounds-sandbox.appspot.com",
+            messagingSenderId: "711623336526",
+            appId: "1:711623336526:web:d20cd61b78b0480350991f",
+            measurementId: "G-1RZMQY4KQ3"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const accessRef = collection(db, "access");
+        const snapshot = await getCountFromServer(accessRef);
+        const count = snapshot.data().count;
+
+        // Show access counter
+        const accessCounter = document.querySelector('.access-counter');
+        accessCounter.innerText = count;
+
+        // Increment access counter
+        // first-time access or re-access after more than 24 hours
+        const lastAccess = Number(localStorage.getItem('lastAccess'));
+        const now = Date.now();
+        if (now - lastAccess > 1000 * 60 * 60 * 24) {
+            await addDoc(accessRef, {
+                time: serverTimestamp(),
+                userAgent: navigator.userAgent,
+            });
+            localStorage.setItem('lastAccess', Date.now().toString());
+        }
+    </script>
 </body>
 
 </html>
